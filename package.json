@@ -1,0 +1,29 @@
+{
+  "name": "generator-keystone",
+  "version": "0.1.0",
+  "description": "A Yeoman Generator for scaffolding new project builds leveraging Keystone pipelines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenzanlabs/generator-keystone.git"
+  },
+  "keywords": [
+    "Keystone",
+    "Gulp",
+    "Yeoman"
+  ],
+  "author": "Owen Buckley <obuckley@kenzan.com> (https://kenzan.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kenzanlabs/generator-keystone/issues"
+  },
+  "homepage": "https://github.com/kenzanlabs/generator-keystone#readme",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-task-listing": "1.0.1",
+    "pipeline-validate-js": "1.0.0-rc2"
+  }
+}
