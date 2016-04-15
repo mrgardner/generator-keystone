@@ -23,6 +23,7 @@
   "homepage": "https://github.com/kenzanlabs/generator-keystone#readme",
   "devDependencies": {
     "gulp": "3.9.1",
+    "gulp-task-listing": "1.0.1",
     "pipeline-validate-js": "1.0.0-rc2"
   }
 }

@@ -31,6 +31,16 @@ TBD
 ## Options
 TBD
 
+## Development
+This project comes bundled with [Vagrant][] to enable all contributors the same consistent environment.  The workflow 
+is as follows: 
+
+1. Run `vagrant up` from the root of the project 
+2. Run `cd /vagrant`
+3. You can now run all Gulp, Yeoman, or NPM commands from the terminal.  Use your host machine for Git, your IDE, etc.
+
+[Vagrant]: https://www.vagrantup.com/
+
 ## LICENSE
 Copyright 2016 Kenzan, LLC <http://kenzan.com>
 
