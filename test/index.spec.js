@@ -26,7 +26,7 @@ describe('Test the Kenzan Keystone Generator', function () {
       assert.equal(path.basename(process.cwd()), 'generator-temp');
     });
 
-    it('generates needed files', () => {
+    it('generates needed files', function () {
       const expected = [
         '.editorconfig',
         '.gitattributes',
@@ -105,7 +105,7 @@ describe('Test the Kenzan Keystone Generator', function () {
       assert.equal(path.basename(process.cwd()), 'generator-temp');
     });
 
-    it('generates needed files', () => {
+    it('generates needed files', function () {
       const expected = [
         '.editorconfig',
         '.gitattributes',
@@ -184,7 +184,7 @@ describe('Test the Kenzan Keystone Generator', function () {
       assert.equal(path.basename(process.cwd()), 'generator-temp');
     });
 
-    it('generates needed files', () => {
+    it('generates needed files', function () {
       const expected = [
         '.editorconfig',
         '.gitattributes',
