@@ -7,6 +7,7 @@ const yosay = require('yosay');
 const chalk = require('chalk');
 
 module.exports = class extends Generator {
+
   initializing() {
     this.props = {};
   }
@@ -19,12 +20,24 @@ module.exports = class extends Generator {
     var prompts = [{
         type: 'input',
         name: 'name',
-        message: 'Project Name'
+        message: 'Project Name',
+        validate: function (input) {
+            if (input.length > 0) {
+              return true;
+            }
+          return 'Please enter a valid project name';
+        }
       },
       {
         type: 'input',
         name: 'desc',
-        message: 'Project Description'
+        message: 'Project Description',
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid project description';
+        }
       },
       {
         type: 'confirm',
@@ -32,9 +45,247 @@ module.exports = class extends Generator {
         message: 'Do you want Npm?'
       },
       {
+        type: 'input',
+        name: 'npmName',
+        message: 'name',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid project name';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmVersion',
+        message: 'version',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid project version';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmDescription',
+        message: 'description',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid project description';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmEntryPoint',
+        message: 'entry point',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid file name';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmTestCommand',
+        message: 'test command',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid test command';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmGitRepo',
+        message: 'git repository',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid git repository';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmKeywords',
+        message: 'keywords',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid keywords';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmAuthor',
+        message: 'author',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid author';
+        }
+      },
+      {
+        type: 'input',
+        name: 'npmLicense',
+        message: 'license',
+        when: function (answers) {
+          return answers.npm;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid license';
+        }
+      },
+      {
         type: 'confirm',
         name: 'bower',
         message: 'Do you want Bower?'
+      },
+      {
+        type: 'input',
+        name: 'bowerName',
+        message: 'name',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid project name';
+        }
+      },
+      {
+        type: 'input',
+        name: 'bowerVersion',
+        message: 'version',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid version';
+        }
+      },
+      {
+        type: 'input',
+        name: 'bowerAuthor',
+        message: 'authors',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid author';
+        }
+      },
+      {
+        type: 'input',
+        name: 'bowerDescription',
+        message: 'description',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid description';
+        }
+      },
+      {
+        type: 'input',
+        name: 'bowerMainFile',
+        message: 'main',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid file';
+        }
+      },
+      {
+        type: 'input',
+        name: 'bowerKeywords',
+        message: 'keywords',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid keyword';
+        }
+      },
+      {
+        type: 'input',
+        name: 'bowerLicense',
+        message: 'license',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid license';
+        }
+      },
+      {
+        type: 'input',
+        name: 'bowerHomepage',
+        message: 'homepage',
+        when: function (answers) {
+          return answers.bower;
+        },
+        validate: function (input) {
+          if (input.length > 0) {
+            return true;
+          }
+          return 'Please enter a valid homepage';
+        }
       }];
 
     return this.prompt(prompts).then(function (props) {
@@ -50,6 +301,65 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    if (this.props.npm === true) {
+      const pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
+
+      extend(pkg, {
+        "name": this.props.npmName,
+        "version": this.props.npmVersion,
+        "description": this.props.npmDescription,
+        "author": this.props.npmAuthor,
+        "main": this.props.npmEntryPoint,
+        "keywords": [
+          this.props.npmKeywords
+        ],
+        "repository": this.props.npmGitRepo,
+        "directories": {
+        "test": this.props.npmTestCommand
+        },
+        "scripts": {
+        "test": this.props.npmTestCommand
+        },
+        "license": this.props.npmLicense
+      });
+
+      pkg.keywords = pkg.keywords || [];
+      pkg.keywords.push('yeoman');
+
+      this.fs.writeJSON(this.destinationPath('package.json'), pkg);
+    }
+
+    if (this.props.bower === true) {
+      const pkg = this.fs.readJSON(this.destinationPath('bower.json'), {});
+
+      extend(pkg, {
+        "name": this.props.bowerName,
+        "version": this.props.bowerVersion,
+        "authors": [
+          this.props.bowerAuthor,
+        ],
+        "description": this.props.bowerDescription,
+        "main": this.props.bowerMainFile,
+        "keywords": [
+          this.props.bowerKeywords
+        ],
+        "homepage": this.props.bowerHomepage,
+        "license": this.props.bowerLicense,
+        "ignore": [
+          '**/.*',
+          'node_modules',
+          'bower_components',
+          'test',
+          'tests'
+        ]
+      });
+
+      pkg.keywords = pkg.keywords || [];
+      pkg.keywords.push('yeoman');
+
+      this.fs.writeJSON(this.destinationPath('bower.json'), pkg);
+    }
+
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),
@@ -89,20 +399,5 @@ module.exports = class extends Generator {
       this.destinationPath('.yo-rc.json')
     );
   }
-
-  install() {
-    if (this.props.npm === true) {
-      this.log(
-        'Generating package.json ' + '\n'
-      );
-      this.spawnCommandSync('npm', ['init']);
-    }
-
-    if (this.props.bower === true) {
-      this.log(
-        'Generating bower.json ' + '\n'
-      );
-      this.spawnCommandSync('bower', ['init']);
-    }
-  }
 };
+
