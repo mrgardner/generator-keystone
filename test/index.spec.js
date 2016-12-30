@@ -157,7 +157,6 @@ describe('Test the Kenzan Keystone Generator', function () {
     });
   });
 
-
   describe('Test generator without npm and with bower', function () {
     it('Setup Generator', function () {
       return helpers.run(path.join(__dirname, '../app'))
@@ -237,4 +236,3 @@ describe('Test the Kenzan Keystone Generator', function () {
     });
   });
 });
-
