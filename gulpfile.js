@@ -19,7 +19,6 @@ var testPipeline = require('pipeline-test-node')({ plugins: {
 var validateConfig = {
   linter: {
     files: [
-      '*.js',
       './src/*.js',
       './test/**/*.js'
     ]
