@@ -1,10 +1,10 @@
 'use strict';
-const path = require('path');
-const Generator = require('yeoman-generator');
-const extend = require('deep-extend');
-const mkdirp = require('mkdirp');
-const yosay = require('yosay');
-const chalk = require('chalk');
+var path = require('path');
+var Generator = require('yeoman-generator');
+var extend = require('deep-extend');
+var mkdirp = require('mkdirp');
+var yosay = require('yosay');
+var chalk = require('chalk');
 
 module.exports = class extends Generator {
 
@@ -302,7 +302,7 @@ module.exports = class extends Generator {
 
   writing() {
     if (this.props.npm === true) {
-      const pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
+      var pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
 
       extend(pkg, {
         "name": this.props.npmName,
@@ -330,7 +330,7 @@ module.exports = class extends Generator {
     }
 
     if (this.props.bower === true) {
-      const pkg = this.fs.readJSON(this.destinationPath('bower.json'), {});
+      var pkg = this.fs.readJSON(this.destinationPath('bower.json'), {});
 
       extend(pkg, {
         "name": this.props.bowerName,
