@@ -1,10 +1,9 @@
 'use strict';
 
-const path = require('path');
-const assert = require('yeoman-assert');
-const helpers = require('yeoman-test');
-const mockery = require('mockery');
-const fs = require('fs-extra');
+var path = require('path');
+var assert = require('yeoman-assert');
+var helpers = require('yeoman-test');
+var fs = require('fs-extra');
 
 describe('Test the Kenzan Keystone Generator', function () {
   describe('Test generator without npm and bower', function () {
@@ -12,13 +11,14 @@ describe('Test the Kenzan Keystone Generator', function () {
       return helpers.run(path.join(__dirname, '../app'))
         .inTmpDir(function (dir) {
           var done = this.async(); // `this` is the RunContext object.
+
           fs.copy(path.join(__dirname, '../templates/common'), dir, done);
         })
         .withPrompts({
           name: 'generator-temp',
           desc: 'test desc',
           npm: false,
-          bower: false,
+          bower: false
         });
     });
 
@@ -27,7 +27,7 @@ describe('Test the Kenzan Keystone Generator', function () {
     });
 
     it('generates needed files', function () {
-      const expected = [
+      var expected = [
         '.editorconfig',
         '.gitattributes',
         '.gitignore',
@@ -82,6 +82,7 @@ describe('Test the Kenzan Keystone Generator', function () {
       return helpers.run(path.join(__dirname, '../app'))
         .inTmpDir(function (dir) {
           var done = this.async(); // `this` is the RunContext object.
+
           fs.copy(path.join(__dirname, '../templates/common'), dir, done);
         })
         .withPrompts({
@@ -97,7 +98,7 @@ describe('Test the Kenzan Keystone Generator', function () {
           npmAuthor: 'Test User',
           npmLicense: 'ISC',
           npmKeywords: 'yeoman',
-          npmTestCommand: 'test',
+          npmTestCommand: 'test'
         });
     });
 
@@ -106,7 +107,7 @@ describe('Test the Kenzan Keystone Generator', function () {
     });
 
     it('generates needed files', function () {
-      const expected = [
+      var expected = [
         '.editorconfig',
         '.gitattributes',
         '.gitignore',
@@ -162,6 +163,7 @@ describe('Test the Kenzan Keystone Generator', function () {
       return helpers.run(path.join(__dirname, '../app'))
         .inTmpDir(function (dir) {
           var done = this.async(); // `this` is the RunContext object.
+
           fs.copy(path.join(__dirname, '../templates/common'), dir, done);
         })
         .withPrompts({
@@ -176,7 +178,7 @@ describe('Test the Kenzan Keystone Generator', function () {
           bowerMainFile: 'index.js',
           bowerKeywords: 'bower',
           bowerLicense: 'MIT',
-          bowerHomepage: 'keystone.com',
+          bowerHomepage: 'keystone.com'
         });
     });
 
@@ -185,7 +187,7 @@ describe('Test the Kenzan Keystone Generator', function () {
     });
 
     it('generates needed files', function () {
-      const expected = [
+      var expected = [
         '.editorconfig',
         '.gitattributes',
         '.gitignore',
