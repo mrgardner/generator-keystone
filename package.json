@@ -31,7 +31,6 @@
     "gulp": "3.9.1",
     "gulp-task-listing": "1.0.1",
     "mkdirp": "0.5.1",
-    "mockery": "2.0.0",
     "pipeline-test-node": "0.4.1",
     "pipeline-validate-js": "1.0.0-rc4",
     "yeoman-assert": "2.2.1",
