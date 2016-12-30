@@ -28,19 +28,16 @@ var validateConfig = {
     files: [
       '*.js',
       './src/*.js',
-      './test/**/*.js',
+      './test/**/*.js'
     ]
   }
 };
 
-
-
 gulp.task('help', taskListing);
 
 gulp.task('lint', function() {
-  gulp.src([
-    validateConfig.linter.files
-  ]).pipe(validatePipeline.validateJS());
+  gulp.src(validateConfig.linter.files)
+    .pipe(validatePipeline.validateJS());
 });
 
 gulp.task('build', ['lint']);
