@@ -1,13 +1,21 @@
 'use strict';
+
 var path = require('path');
 var Generator = require('yeoman-generator');
 var extend = require('deep-extend');
 var mkdirp = require('mkdirp');
 var yosay = require('yosay');
 var chalk = require('chalk');
+var ERROR_MESSAGES = {
+  INVALID_PROJECT_NAME: 'Please enter a valid project name',
+  INVALID_PROJECT_DESCRIPTION: 'Please enter a valid project description',
+  INVALID_PROJECT_VERSION: 'Please enter a valid project version',
+  INVALID_PROJECT_FILE_NAME: 'Please enter a valid file name',
+  INVALID_PROJECT_AUTHOR: 'Please enter a valid author',
+  INVALID_PROJECT_LICENSE: 'Please enter a valid license',
+};
 
 module.exports = class extends Generator {
-
   initializing() {
     this.props = {};
   }
@@ -22,10 +30,7 @@ module.exports = class extends Generator {
         name: 'name',
         message: 'Project Name',
         validate: function (input) {
-            if (input.length > 0) {
-              return true;
-            }
-          return 'Please enter a valid project name';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_NAME;
         }
       },
       {
@@ -33,10 +38,7 @@ module.exports = class extends Generator {
         name: 'desc',
         message: 'Project Description',
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid project description';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_DESCRIPTION;
         }
       },
       {
@@ -52,10 +54,7 @@ module.exports = class extends Generator {
           return answers.npm;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid project name';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_NAME;
         }
       },
       {
@@ -66,10 +65,7 @@ module.exports = class extends Generator {
           return answers.npm;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid project version';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_VERSION;
         }
       },
       {
@@ -78,12 +74,6 @@ module.exports = class extends Generator {
         message: 'description',
         when: function (answers) {
           return answers.npm;
-        },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid project description';
         }
       },
       {
@@ -94,10 +84,7 @@ module.exports = class extends Generator {
           return answers.npm;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid file name';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_FILE_NAME;
         }
       },
       {
@@ -106,12 +93,6 @@ module.exports = class extends Generator {
         message: 'test command',
         when: function (answers) {
           return answers.npm;
-        },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid test command';
         }
       },
       {
@@ -121,12 +102,6 @@ module.exports = class extends Generator {
         when: function (answers) {
           return answers.npm;
         },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid git repository';
-        }
       },
       {
         type: 'input',
@@ -134,12 +109,6 @@ module.exports = class extends Generator {
         message: 'keywords',
         when: function (answers) {
           return answers.npm;
-        },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid keywords';
         }
       },
       {
@@ -150,10 +119,7 @@ module.exports = class extends Generator {
           return answers.npm;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid author';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_AUTHOR;
         }
       },
       {
@@ -164,10 +130,7 @@ module.exports = class extends Generator {
           return answers.npm;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid license';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_LICENSE;
         }
       },
       {
@@ -183,10 +146,7 @@ module.exports = class extends Generator {
           return answers.bower;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid project name';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_NAME;
         }
       },
       {
@@ -197,10 +157,7 @@ module.exports = class extends Generator {
           return answers.bower;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid version';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_VERSION;
         }
       },
       {
@@ -211,10 +168,7 @@ module.exports = class extends Generator {
           return answers.bower;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid author';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_AUTHOR;
         }
       },
       {
@@ -223,12 +177,6 @@ module.exports = class extends Generator {
         message: 'description',
         when: function (answers) {
           return answers.bower;
-        },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid description';
         }
       },
       {
@@ -237,12 +185,6 @@ module.exports = class extends Generator {
         message: 'main',
         when: function (answers) {
           return answers.bower;
-        },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid file';
         }
       },
       {
@@ -251,12 +193,6 @@ module.exports = class extends Generator {
         message: 'keywords',
         when: function (answers) {
           return answers.bower;
-        },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid keyword';
         }
       },
       {
@@ -267,10 +203,7 @@ module.exports = class extends Generator {
           return answers.bower;
         },
         validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid license';
+          return input.length > 0 || ERROR_MESSAGES.INVALID_PROJECT_LICENSE;
         }
       },
       {
@@ -279,12 +212,6 @@ module.exports = class extends Generator {
         message: 'homepage',
         when: function (answers) {
           return answers.bower;
-        },
-        validate: function (input) {
-          if (input.length > 0) {
-            return true;
-          }
-          return 'Please enter a valid homepage';
         }
       }];
 
@@ -314,17 +241,11 @@ module.exports = class extends Generator {
           this.props.npmKeywords
         ],
         "repository": this.props.npmGitRepo,
-        "directories": {
-        "test": this.props.npmTestCommand
-        },
         "scripts": {
-        "test": this.props.npmTestCommand
+          "test": this.props.npmTestCommand
         },
         "license": this.props.npmLicense
       });
-
-      pkg.keywords = pkg.keywords || [];
-      pkg.keywords.push('yeoman');
 
       this.fs.writeJSON(this.destinationPath('package.json'), pkg);
     }
@@ -353,9 +274,6 @@ module.exports = class extends Generator {
           'tests'
         ]
       });
-
-      pkg.keywords = pkg.keywords || [];
-      pkg.keywords.push('yeoman');
 
       this.fs.writeJSON(this.destinationPath('bower.json'), pkg);
     }
@@ -400,4 +318,3 @@ module.exports = class extends Generator {
     );
   }
 };
-
