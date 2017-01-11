@@ -25,12 +25,7 @@ var config = {
 var validateConfig = {
   linter: {
     files: [
-      './src/**/*.js'
-    ]
-  },
-  test: {
-    files: [
-      './test/**/*.js'
+      './src/*.js',
     ]
   }
 };
@@ -47,7 +42,7 @@ gulp.task('build', ['lint']);
 
 gulp.task('test', function() {
   return gulp
-    .src(validateConfig.test.files)
+    .src(config.files.src)
     .pipe(testPipeline.test(config));
 });
 
