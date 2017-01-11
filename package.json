@@ -31,7 +31,7 @@
     "gulp": "3.9.1",
     "gulp-task-listing": "1.0.1",
     "mkdirp": "0.5.1",
-    "pipeline-test-node": "0.4.1",
+    "pipeline-test-node": "1.1.1",
     "pipeline-validate-js": "1.0.0-rc4",
     "yeoman-assert": "2.2.1",
     "yeoman-generator": "1.0.0",
