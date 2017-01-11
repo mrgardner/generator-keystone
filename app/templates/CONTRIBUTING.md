@@ -43,7 +43,7 @@ commit your work:
 All PRs will be squashed merged through GitHub.
 
 ## Continuous Integration
-Keystone projects enforce a number of best practices such as JS linting and unit testing.  Each PR will be run against
+<%- appName %> projects enforce a number of best practices such as JS linting and unit testing.  Each PR will be run against
 a continuous integration server with the result getting marked in the PR as pass / fail.  Failing builds will result
 in your pull request getting declined.  There will be a `gulp build` task in each project that you can run locally
 to test before submitting a PR.
