@@ -37,7 +37,7 @@ gulp.task('lint', function() {
     .pipe(validatePipeline.validateJS());
 });
 
-gulp.task('build', ['lint']);
+gulp.task('build', ['lint', 'test']);
 
 
 gulp.task('test', function() {

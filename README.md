@@ -10,11 +10,10 @@
 # Overview
 This project is built on-top of [Yeoman][] to allow developers to quickly and easily scaffold out a [Gulp][] based
 build for their projects, leverage [Keystone][] pipelines.  By answering a few simple questions, a whole skeleton build
-with a functional _gulpfile.js_ and fully configured and installed _package.json_ and _bower.json_ will be generated
+with a _.gitignore_, _.gitattributes_, _.yo-rc.json _CONTRIBUTING.md_, _README.md_, functional _gulpfile.js_ and fully configured and installed _package.json_ and _bower.json_ will be generated
 for you.
 
-**NOTE: this project is now in 1.0.0 release candidate stage.  1.0.0-rc tags will be published to NPM to allow
-developers to review and provided feedback.**
+**NOTE: as this project is still pre 1.0.0, it is subject to possible backwards incompatible changes as it matures.
 
 [Yeoman]: http://yeoman.io/
 [Gulp]: http://gulpjs.com/
