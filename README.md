@@ -49,7 +49,7 @@ is as follows:
 [Vagrant]: https://www.vagrantup.com/
 
 ## Testing
-You can test your source files by running `gulp test`
+You can test your source files by running `npm test`
 
 ## LICENSE
 Copyright 2016 Kenzan, LLC <http://kenzan.com>
