@@ -4,7 +4,8 @@
   "description": "A Yeoman Generator for scaffolding new project builds leveraging Keystone pipelines",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/gulp build"
+    "build": "./node_modules/.bin/gulp build",
+    "test": "./node_modules/.bin/gulp test"
   },
   "repository": {
     "type": "git",
