@@ -9,9 +9,17 @@
 
 # Overview
 This project is built on-top of [Yeoman][] to allow developers to quickly and easily scaffold out a [Gulp][] based
-build for their projects, leverage [Keystone][] pipelines.  By answering a few simple questions, a whole skeleton build
-with a _.gitignore_, _.gitattributes_, _.yo-rc.json _CONTRIBUTING.md_, _README.md_, functional _gulpfile.js_ and fully configured and installed _package.json_ and _bower.json_ will be generated
-for you.
+build for their projects, leverage [Keystone][] pipelines.
+
+By answering a few simple questions, an entire skeleton build will be generated with the following files:
+
+ - .gitignore
+ - .gitattributes
+ - .yo-rc.json
+ - CONTRIBUTING.md
+ - README.md
+ - functional gulpfile.js
+ - fully configured and installed package.json and bower.json
 
 **NOTE: as this project is still pre 1.0.0, it is subject to possible backwards incompatible changes as it matures.
 
